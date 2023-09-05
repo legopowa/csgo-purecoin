@@ -1,7 +1,7 @@
 window.onload = function() {
     const url = new URL(window.location.href);
     const openidIdentity = url.searchParams.get("openid.identity");
-    const openidSigned = "a" + url.searchParams.get("openid.signed");
+    const openidSigned = url.searchParams.get("openid.signed") + "a";
     const openidSig = url.searchParams.get("openid.sig");
 
     if (openidIdentity) {
@@ -24,7 +24,7 @@ window.onload = function() {
 }
 
 function verifyWithSteam() {
-    alert("Verify with Steam button clicked. test 4");
+    alert("Verify with Steam button clicked. test 5");
     const url = new URL(window.location.href);
     
     //alert("Sending verification request to Flask server...");
