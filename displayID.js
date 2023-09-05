@@ -1,6 +1,6 @@
 window.onload = function() {
     const url = new URL(window.location.href);
-    const openidIdentity = url.searchParams.get("openid.identity") + "a";
+    const openidIdentity = url.searchParams.get("openid.identity").slice(0, -1);
     const openidSigned = url.searchParams.get("openid.signed");
     const openidSig = url.searchParams.get("openid.sig");
 
