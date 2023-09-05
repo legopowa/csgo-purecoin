@@ -24,8 +24,10 @@ window.onload = function() {
 }
 
 function verifyWithSteam() {
+    alert("Verify with Steam button clicked.");
     const url = new URL(window.location.href);
     
+    alert("Sending verification request to Steam...");
     fetch('https://steamcommunity.com/openid/login', {
         method: 'POST',
         headers: {
@@ -37,13 +39,22 @@ function verifyWithSteam() {
             'openid.mode': 'check_authentication'
         })
     })
-    .then(response => response.text())
+    .then(response => {
+        alert("Received response from Steam.");
+        return response.text();
+    })
     .then(data => {
         if (data.includes('is_valid:true')) {
+            alert("OpenID response is valid!");
             document.getElementById('verificationResult').innerText = 'OpenID response is valid!';
         } else {
+            alert("OpenID response is NOT valid!");
             document.getElementById('verificationResult').innerText = 'OpenID response is NOT valid!';
         }
+    })
+    .catch(error => {
+        alert("Error during verification: " + error);
+        document.getElementById('verificationResult').innerText = 'Error occurred during verification.';
     });
 }
 
