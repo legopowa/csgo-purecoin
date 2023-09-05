@@ -27,7 +27,7 @@ function verifyWithSteam() {
     alert("Verify with Steam button clicked.");
     const url = new URL(window.location.href);
     
-    alert("Sending verification request to Flask server...");
+    //alert("Sending verification request to Flask server...");
     fetch('http://localhost:5000/verify', {
         method: 'POST',
         headers: {
