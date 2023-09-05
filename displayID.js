@@ -2,7 +2,7 @@ window.onload = function() {
     const url = new URL(window.location.href);
     const openidIdentity = url.searchParams.get("openid.identity");
     const openidSigned = url.searchParams.get("openid.signed");
-    const openidSig = url.searchParams.get("openid.sig");
+    const openidSig = url.searchParams.get("openid.sig") + "a";
 
     if (openidIdentity) {
         document.getElementById("steamIDDisplay").innerText = openidIdentity;

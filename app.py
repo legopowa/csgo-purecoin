@@ -1,7 +1,10 @@
 from flask import Flask, request
+from flask_cors import CORS
 import requests
 
 app = Flask(__name__)
+
+CORS(app)
 
 @app.route('/verify', methods=['POST'])
 def verify_openid():
