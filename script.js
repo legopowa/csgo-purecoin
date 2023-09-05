@@ -1,19 +1,16 @@
-function startOpenIDAuthentication() {
-    // Redirect user to Steam OpenID URL
-    // This URL will be something provided by Steam's OpenID implementation
-    // After authentication, Steam should redirect back to this page with the token in the URL
-    window.location.href = "STEAM_OPENID_URL";
+// script.js
+
+function loginWithSteam() {
+    // Construct the URL for Steam's OpenID endpoint
+    // You'll need to replace 'YOUR_RETURN_URL' with the URL where Steam should redirect the user after authentication
+    const steamOpenIDURL = "https://steamcommunity.com/openid/login?" + 
+        "openid.ns=http://specs.openid.net/auth/2.0&" +
+        "openid.mode=checkid_setup&" +
+        "openid.return_to=https://legopowa.github.io/csgo-purecoin/GotSteamID.html" +
+        "openid.realm=https://legopowa.github.io/csgo-purecoin/&" +  // Typically the base URL of your site
+        "openid.identity=http://specs.openid.net/auth/2.0/identifier_select&" +
+        "openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select";
+
+    // Redirect the user to Steam for authentication
+    window.location.href = steamOpenIDURL;
 }
-
-// Capture the OpenID token from the URL (if it exists) and display it
-function displayToken() {
-    const url = new URL(window.location.href);
-    const openidToken = url.searchParams.get("openid_token"); // replace "openid_token" with the correct parameter name from Steam's redirect URL
-
-    if (openidToken) {
-        document.getElementById("tokenDisplay").innerText = "OpenID Token: " + openidToken;
-    }
-}
-
-// Call the displayToken function when the page loads
-window.onload = displayToken;
