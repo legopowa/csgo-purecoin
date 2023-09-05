@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Received Steam ID</title>
     <script src="displayID.js" defer></script>
+    <style>
+        .info {
+            margin: 10px 0;
+            padding: 5px;
+            border: 1px solid #ddd;
+            background-color: #f5f5f5;
+        }
+    </style>
 </head>
 <body>
-    <div id="steamIDDisplay">Your Steam ID will be displayed here.</div>
+    <h2>Steam OpenID Details:</h2>
+    <div class="info" id="steamIDDisplay">Your Steam ID will be displayed here.</div>
+    <div class="info" id="signedFields">Signed fields will be displayed here.</div>
+    <div class="info" id="signature">Signature will be displayed here.</div>
 </body>
 </html>

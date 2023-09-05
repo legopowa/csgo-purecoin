@@ -6,13 +6,21 @@ window.onload = function() {
     const openidSigned = url.searchParams.get("openid.signed");
     const openidSig = url.searchParams.get("openid.sig");
 
-    let displayText = "Failed to retrieve Steam ID.";
-
-    if (openidIdentity && openidSigned && openidSig) {
-        displayText = "Your Steam ID: " + openidIdentity + "\n";
-        displayText += "Signed fields: " + openidSigned + "\n";
-        displayText += "Signature: " + openidSig;
+    if (openidIdentity) {
+        document.getElementById("steamIDDisplay").innerText = "Your Steam ID: " + openidIdentity;
+    } else {
+        document.getElementById("steamIDDisplay").innerText = "Failed to retrieve Steam ID.";
     }
 
-    document.getElementById("steamIDDisplay").innerText = displayText;
+    if (openidSigned) {
+        document.getElementById("signedFields").innerText = "Signed fields: " + openidSigned;
+    } else {
+        document.getElementById("signedFields").innerText = "Failed to retrieve signed fields.";
+    }
+
+    if (openidSig) {
+        document.getElementById("signature").innerText = "Signature: " + openidSig;
+    } else {
+        document.getElementById("signature").innerText = "Failed to retrieve signature.";
+    }
 }
