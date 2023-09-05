@@ -28,7 +28,7 @@ function verifyWithSteam() {
     const url = new URL(window.location.href);
     
     alert("Sending verification request to Flask server...");
-    fetch('http://localhost:5000/verify', {
+    fetch('http://127.0.0.1:5000/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
