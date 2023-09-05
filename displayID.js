@@ -24,7 +24,7 @@ window.onload = function() {
 }
 
 function verifyWithSteam() {
-    alert("Verify with Steam button clicked.");
+    alert("Verify with Steam button clicked. test 1");
     const url = new URL(window.location.href);
     
     //alert("Sending verification request to Flask server...");
