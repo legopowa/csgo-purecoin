@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World with JS Button</title>
+    <title>Capture OpenID Token</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <button onclick="showAlert()">Click Me!</button>
+    <!-- Button to initiate OpenID authentication -->
+    <button onclick="startOpenIDAuthentication()">Login with Steam</button>
+
+    <!-- Area to display the OpenID token -->
+    <div id="tokenDisplay"></div>
 
     <script src="script.js"></script>
 </body>
