@@ -27,34 +27,26 @@ function verifyWithSteam() {
     alert("Verify with Steam button clicked.");
     const url = new URL(window.location.href);
     
-    alert("Sending verification request to Steam...");
-    fetch('https://steamcommunity.com/openid/login', {
+    alert("Sending verification request to Flask server...");
+    fetch('http://localhost:5000/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
             ...Array.from(url.searchParams.entries()).reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {}),
-            'openid.ns': 'http://specs.openid.net/auth/2.0',
-            'openid.mode': 'check_authentication'
         })
     })
     .then(response => {
-        alert("Received response from Steam.");
+        alert("Received response from Flask server.");
         return response.text();
     })
     .then(data => {
-        if (data.includes('is_valid:true')) {
-            alert("OpenID response is valid!");
-            document.getElementById('verificationResult').innerText = 'OpenID response is valid!';
-        } else {
-            alert("OpenID response is NOT valid!");
-            document.getElementById('verificationResult').innerText = 'OpenID response is NOT valid!';
-        }
+        alert(data);
+        document.getElementById('verificationResult').innerText = data;
     })
     .catch(error => {
         alert("Error during verification: " + error);
         document.getElementById('verificationResult').innerText = 'Error occurred during verification.';
     });
 }
-
