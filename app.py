@@ -1,10 +1,18 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_cors import CORS
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.', static_url_path='', template_folder='.')
 
 CORS(app)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/gotsteamid')
+def got_steam_id():
+    return render_template('GotSteamID.html')
 
 @app.route('/verify', methods=['POST'])
 def verify_openid():

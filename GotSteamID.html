@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Received Steam ID</title>
     <script src="displayID.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethereumjs-util@7.1.0/dist/index.min.js"></script>
+    <script src="addtoken.js"></script> <!-- Linking to the external JS file -->
+
 </head>
 <body>
     <h2>Steam OpenID Details: test1</h2>
@@ -14,5 +17,6 @@
     <br>
     <button id="verifyButton" onclick="verifyWithSteam()">Verify with Steam</button>
     <div id="verificationResult"></div>
+    <button id="addBriseNetwork">Add Brise Network to MetaMask</button>
 </body>
 </html>
